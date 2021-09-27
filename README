@@ -1,0 +1,149 @@
+                             *** SENTINEL ***
+
+GPL
+===
+This software is GPL'd. Please read the GPL 2 licence file for more
+information. It can be found here:
+
+http://www.gnu.org/licenses/gpl-2.0.html
+
+
+Compiling
+=========
+Just type "make". If you get any sound.cc related compilation errors (eg on
+OS/X) comment out the line "SOUND=-DSOUND" in the Makefile.
+
+
+Storyline
+=========
+This is a game losely based on a cross between Defender, Scramble and some game
+on the BBC Micro whose name escapes me. The idea is that you have to rescue all
+the men trapped in pods on the surface of the planet by grabbing them with a
+tractorbeam and take them back to the moonbase (the place you take off from at 
+the start of the level). Each pod you save regains you 5 points of lost health
+(max health = 100). 
+   Meanwhile gryppers launched from the enemy lairs want to do the same. If the
+enemy capture them they become prisoners and are eventually relaunch as zombies
+who attempt to ram you. However there are plenty of other nasties waiting out
+there for you which you will discover soon enough.
+
+
+Weapons
+=======
+You start with a single laser (upgradable via a powerup in later levels) but
+there are numerous bombs scattered around the landscape. They have a number 
+which slowly increases as the level goes on and this number is measure of
+their destructive power but also their weight. So the more blast power they
+have the heavier they are to carry. Their detonation timer starts as soon as
+you drop them and they explode after 2 seconds.
+
+
+Powerups
+========
+These appear as floating icons. More appear as you progress up the levels.
+
+Tractorbeam - This restores your tractorbeam to full power
+Hyperspace  - This gives you another hyperspace jump
+Shield      - With this press control-R to activate shield. This powerup is
+              removed if your ship is destroyed.
+Laser       - Gives you a double laser. Ditto shield if ship is destroyed.
+Health      - Restores health (max = 100) based on level * 10 (eg level 6 = 60)
+Reverse G   - Reverse the pull of gravity. May help or hinder you!
+
+
+Level   To complete level
+=====   =================
+1       Rescue pods, kill all zombies
+2       Rescue pods, kill all zombies
+3       As 2 plus destroy 2 cannon
+4       As 2 plus destroy all cannon
+5       As 2 plus destroy 2 lairs
+6+      As 2 plus destroy all lairs
+
+
+Miscellanous game info
+======================
+- The radar only shows 60% of the landscape at any time
+- Gravity starts to get stronger from level 6 onwards
+- If all pods are captured by the enemy everything runs faster and bouncing off
+  a hill costs you health
+- Bombs get more powerful but heavier as a level progresses. They are reset
+  on level re-start or a new level.
+- Bombs should be used to destroy the heavily armoured lairs.
+- Bombing a lair makes it release 1 prisoner as a pod
+- Destroying a lair releases all prisoners as pods unless all pods have been
+  captured in which case they are releases as zombies.
+- If you pass through a Disruptors field you will drop all your cargo 
+  (pods/bombs) and lose health. 
+- When a Disruptor is destroyed the gravity field is disturbed and zero 
+  gravity ensues for a while. This will allow you to carry heavy bombs on
+  higher levels.
+- Your ship may carry a maximum of 3 items but if the weight is too much it
+  won't be able to tow them all.
+- Pods and bombs being carried are vulnerable to enemy fire.
+- If you rescue all pods then the all pods saved bonus = 1500 + 500 * level
+- If you gain an extra hyperspace trip due to a powerup this won't be counted
+  if the number of trips increases in the next level. eg if you gain a trip
+  in level 3 (default = 1) which will give you 2 trips and advance to level
+  4 (default = 2) your trip count will remain at 2. Why? Its a lot of trouble
+  to fix for such a small feature. :o)
+
+
+Keys
+====
+S          - start
+P          - pause
+Escape     - quit
+
+Up arrow   - thrust
+A          - increase thrust
+Z          - decrease thrust
+L&R arrows - rotate ship
+
+Shift keys - fire laser
+Control-R  - use shield powerup (if available)
+
+Tab/Alt    - grab pod or bomb
+Spacebar   - drop everything
+D          - drop bottom item only
+
+H          - hyperspace
+V          - sound on/off
+
+
+Sound
+=====
+The sound system can use either the old OpenSound system (which IMO is better
+for games - less latency, no buffer underrun and no mysteriously "dropped"
+sounds) or ALSA. Note that this is a compilation not runtime option. To have
+any sound at all the SOUND macro must be included in the Makefile and to
+specifically use Alsa the ALSA macro must also be defined else it defaults to
+compiling in OpenSound.
+
+The OpenSound system writes directly to the /dev/audio or /dev/dsp device.
+This means if something else is using that then the game won't be able to
+and you'll see a "Device or resource busy" error. To get around this use the 
+"aoss" command. eg: "aoss sen"
+
+
+Operating systems
+=================
+This game will compile and run on Linux & FreeBSD and should work on OS/X
+though sound will only work on Linux so if you're running something else 
+comment out the SOUND=-DSOUND in the Makefile. The binary created is called
+"sen".
+
+
+
+Bugs/Issues
+===========
+- Static objects on roof occasionally appear in the same location at start
+- Laser beams can sometimes travel inside the ground
+- Some game timing issues on certain X installations. If the game appears to
+  be running slowly or response to key presses appears delayed then reduce the
+  window size or use the -ref option to reduce the framerate.
+
+For any others mail neil@ogham.demon.co.uk
+
+
+Neil Robertson

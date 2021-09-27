@@ -1,0 +1,71 @@
+April 2012
+==========
+1.0.0 
+- Initial release
+
+1.0.1 
+- Bug fix: Hyperspace powerup was never appearing!
+- Bug fix: Star colour was occasionally being set to black.
+- Bomb shockwave now drawn in radar. 
+- Updated skyth movement code 
+- Bonus life now every 15K instead of 10K which was making game too easy
+- Made stalags slightly harder to destroy and shoot faster
+- Increased points for cannon from 250 to 300
+- Other minor code mods.
+
+1.0.2
+- Bug fix: Crashing in cast screen
+- Bug fix: Stalag and striker were occasionally appearing at the same location
+- Arrow in cast screen now strobes. 
+- Changed some sound priorities
+- Minor code mods
+
+
+May 2012
+========
+1.0.3
+- Updated ship cargo check code
+- Removed redundant soundTest() function
+
+
+Sept 2012
+=========
+1.0.4
+- Fixed a number of bugs in the sound code (filter, FM, sawtooth)
+
+
+April 2013
+==========
+1.1.0
+- Added ALSA sound support.
+- Merged -w and -h command line options into single -size option
+- Removed some unnecessary keep alive code from sound system
+- Rewrote main input event loop
+- Added sound on/off indicator at bottom right corner of screen
+
+
+June 2013
+=========
+1.1.1
+- Removed some redundant code in sound.cc and cl_object.cc
+
+
+July 2013
+=========
+1.1.2
+- More sound.cc updates
+- Updated Makefile
+
+
+August 2016
+===========
+1.1.3
+- Changed default ALSA sound device to "sysdefault and added -adev option to
+  specific an alternative ALSA device.
+- Replace the -delay option with -ref which doesn't slow the game down when
+  reducing the framerate.
+- Added double ringed planets in background and made planets a bit more
+  frequent.
+- Put more information in titlebar.
+- Replaced sgn() function with SGN() macro for efficiency.
+- Minor update to Makefile
